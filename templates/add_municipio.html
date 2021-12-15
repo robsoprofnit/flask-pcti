@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+<br/>
+<h1>Cadastrar novo Município:</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.nome.label(
+          class="form-label"
+        ) }}
+
+        {{ form.nome(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.id_uf.label(
+          class="form-label"
+        ) }}
+
+        {{ form.id_uf(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+      </form>
+  </div>
+
+
+
+{% endblock %}

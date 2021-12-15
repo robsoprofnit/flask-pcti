@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <br/>
+        <img src="{{ url_for('static', filename='img/PCTI.png') }}" alt="logo_pcti" width=200>
+        <p><h3>Plataforma de Indicadores de Ciência, Tecnologia e Inovação - PCTI</h3></p>
+        <p><h3>Bem vindo {{ first_name|capitalize }}</h3></p>
+    </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+<br/>
+<h1>Criar Nova Variável de Dimensão:</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.nome.label(
+          class="form-label"
+        ) }}
+
+        {{ form.nome(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.descricao.label(
+          class="form-label"
+        ) }}
+
+        {{ form.descricao(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.tag.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.tag(
+            class="form-control"
+          ) }}
+          <br/>
+
+          {{ form.id_dimensao.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.id_dimensao(
+            class="form-control"
+          ) }}
+          <br/>
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+      </form>
+  </div>
+{% endblock %}

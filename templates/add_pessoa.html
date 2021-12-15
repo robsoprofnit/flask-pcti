@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+<br/>
+<h1>Adicionar Pessoa:</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.id_tipo_pessoa.label(
+            class="form-label"
+          ) }}
+  
+        {{ form.id_tipo_pessoa(
+            class="form-control"
+          ) }}
+        <br/>
+
+        {{ form.nome.label(
+          class="form-label"
+        ) }}
+
+        {{ form.nome(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.cpf_cnpj.label(
+          class="form-label"
+        ) }}
+
+        {{ form.cpf_cnpj(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.razao_social.label(
+          class="form-label"
+        ) }}
+
+        {{ form.razao_social(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.nome_social.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.nome_social(
+            class="form-control"
+          ) }}
+          <br/>
+
+          {{ form.id_email.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.id_email(
+            class="form-control"
+          ) }}
+          <br/>
+
+          {{ form.id_uf.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.id_uf(
+            class="form-control"
+          ) }}
+          <br/>
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+      </form>
+  </div>
+
+{% endblock %}

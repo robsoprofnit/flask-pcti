@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'messages.html' %}
+  <br/>
+
+{% if name %}
+<h1>Usuário Atualizado!</h1>
+<br/>
+
+{% else %}
+  <h1>Lista de Usuários:</h1>
+  <br/>
+  <div class="shadow p-3 mb-5 bg-body rounded">
+    <form action="/update/{{ usuario_to_update.id }}" method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.usuario.label(
+          class="form-label"
+        ) }}
+
+        {{ form.usuario(
+          class="form-control",
+          value=usuario_to_update.usuario
+        ) }}
+        <br/>
+
+        {{ form.email.label(
+          class="form-label"
+        ) }}
+
+        {{ form.email(
+          class="form-control",
+          value=usuario_to_update.email
+        ) }}
+        <br/>
+
+          {{ form.password_hash.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.password_hash(
+            class="form-control"
+          ) }}
+          <br/>
+  
+          {{ form.password_hash2.label(
+            class="form-label"
+          ) }}
+  
+          {{ form.password_hash2(
+            class="form-control"
+          ) }}
+          <br/>
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+
+        <a href="{{url_for('delete', id=id)}}"
+          class="btn btn-danger"
+          >Delete</a>
+      </form>
+  </div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+
+<br/>
+  <h1>Respostas</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          <label for="ano"> {{ form.id_ano_base.label }} </label>
+          <br/>
+          <select name="ano_base" id="ano">
+            {% for row in list_ano %}
+              <option value=" {{ row.id }} "> {{ row.ano }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+        
+        <div class="form-group">
+          <label for="instituicao"> {{ form.id_instituicao.label }} </label>
+          <br/>
+          <select name="instituicao" id="instituicao">
+            {% for row in list_instituicao %}
+              <option value=" {{ row.id }} "> {{ row.nome }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <label for="dm1">{{ form.id_uf.label }}</label>
+          <br/>
+          <select name="uf" id="dm1">
+            {% for row in list_uf %}
+              <option value=" {{ row.id }} "> {{ row.sigla }} - {{ row.nome }} </option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <label for="pessoa"> {{ form.id_respondido_por.label }} </label>
+          <br/>
+          <select name="pessoa" id="pessoa">
+            {% for row in list_pessoa %}
+              <option value=" {{ row.id }} "> {{ row.nome }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+
+        {{ form.dimensao.label(
+          class="form-label"
+        ) }}
+
+        {{ form.dimensao(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.subdimensao.label(
+          class="form-label"
+        ) }}
+
+        {{ form.subdimensao(
+          class="form-control"
+        ) }}
+        <br/>
+
+        <div class="form-group">
+          <label for="variavel"> {{ form.id_variavel.label }} </label>
+          <br/>
+          <select name="variavel" id="variavel">
+            {% for row in list_variavel %}
+              <option value=" {{ row.id }} "> {{ row.nome }} - {{ row.descricao }} - {{ row.tag }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+
+        {{ form.resposta.label(
+          class="form-label"
+        ) }}
+
+        {{ form.resposta(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.tag.label(
+          class="form-label"
+        ) }}
+
+        <fieldset disabled>
+          {{ form.tag(
+            class="form-control"
+          ) }}
+        </fieldset>
+        <br/>
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+
+      </form>
+</div>
+{% endblock %}

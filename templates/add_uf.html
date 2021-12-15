@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+<br/>
+<h1>Cadastrar nova UF:</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.nome.label(
+          class="form-label"
+        ) }}
+
+        {{ form.nome(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.sigla.label(
+          class="form-label"
+        ) }}
+
+        {{ form.sigla(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {{ form.id_regiao.label(
+          class="form-label"
+        ) }}
+
+        {{ form.id_regiao(
+          class="form-control"
+        ) }}
+        <br/>
+
+        {% for lista_uf in list_uf %}
+          {{ lista_uf.id }} - 
+          {{ lista_uf.nome}} - 
+          {{ lista_uf.sigla}}
+
+        {% endfor %}
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+      </form>
+  </div>
+
+
+
+{% endblock %}

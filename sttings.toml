@@ -1,0 +1,4 @@
+[default]
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:bolinho123@localhost/our_users'
+TITLE = "PCTI"
+SECRET_KEY = "my super secret key"

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+
+  <br/>
+  <h1>Recursos Humanos</h1>
+  <br/>
+  <div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+      
+      <div class="form-group">
+        <select name=colour method="GET" action="/">
+          {% for colours in colours %}
+          <option value= "{{colours}}" SELECTED>{{colours}}</option>"
+          {% endfor %}
+        </select>
+      </div>
+      
+
+  </form>
+</div>
+
+{% endblock %}

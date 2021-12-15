@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'messages.html' %}
+  <br/>
+{% if usuario %}
+  <h1>Usuário: {{ usuario }}</h1>
+  <h1>Senha: {{ password }}</h1>
+  <h2>Foi encontrado o resultado:</h2>
+  Email: {{ pw_to_check.usuario }}
+  <br/>
+  Pw: {{ pw_to_check.password_hash }}
+  <br/>
+  Passed: {{ passed }}
+  <br/> 
+{% else %}
+  <h1>Qual seu usuário e senha?</h1>
+  <br/>
+  <form method="POST">
+      {{ form.hidden_tag() }}
+
+      {{ form.usuario.label(
+        class="form-label"
+      ) }}
+
+      {{ form.usuario(
+        class="form-control"
+      ) }}
+      <br/>
+      {{ form.password_hash.label(
+        class="form-label"
+      ) }}
+
+      {{ form.password_hash(
+        class="form-control"
+      ) }}
+      <br/>
+      {{ form.submit(
+        class="btn btn-secondary"
+      ) }}
+{% endif %}
+  </form>
+{% endblock %}

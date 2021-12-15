@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'messages.html' %}
+<br/>
+<h1>Escolher Ano Base:</h1>
+<br/>
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+          <label for="ano"> {{ form.id_ano_base.label }} </label>
+          <select name="ano_selecionado" id="ano">
+              {% for row in ano_base %}
+              <option value=" {{ row.id }} "> {{ row.ano }}</option>
+              {% endfor %}
+          </select>
+        </div>
+        <br/>
+
+        {{ form.submit(
+          class="btn btn-secondary"
+        ) }}
+      </form>
+  </div>
+
+
+
+{% endblock %}
